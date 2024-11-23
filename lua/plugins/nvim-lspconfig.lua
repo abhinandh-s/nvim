@@ -1,3 +1,20 @@
+
+local function global_on_attach(client, bufnr)
+  -- Set up buffer-specific key mappings using `vim.keymap.set`
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+
+  -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+  -- Example key mappings
+  vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = 'lsp definition' }, opts) -- Go to definition
+  vim.keymap.set("n", "A", vim.lsp.buf.hover, { desc = 'lsp definition' }, opts)       -- Show hover documentation
+  vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = 'lsp implementation' }, opts) -- Go to implementation
+  vim.keymap.set("n", "<leader>gr", vim.lsp.buf.rename, { desc = 'lsp rename' }, opts) -- Rename symbol
+  vim.keymap.set("n", "<leader>gc", vim.lsp.buf.code_action, { desc = 'code action' }, opts) -- Code actions
+  vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = 'Format buffer' }, opts)
+  vim.keymap.set("n", "<leader>gs", vim.lsp.buf.signature_help, { desc = 'Signature help' }, opts)
+  -- Add any other global bindings here
+end
+
 return {
   'neovim/nvim-lspconfig',
   init_options = {
@@ -35,14 +52,13 @@ return {
     -- }
 
     lspconfig.typst_lsp.setup {
-      on_attach = on_attach,
+      on_attach = global_on_attach(client, bufnr),
       offset_encoding = "utf-8",
       root_dir = lspconfig.util.root_pattern("*.typ"),
       single_file_support = true
     }
 
     lspconfig.denols.setup({
-      root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
       on_attach = function(client, bufnr)
         local opts = { noremap = true, silent = true }
         -- Add more key mappings as needed
@@ -56,7 +72,7 @@ return {
       },
     })
     lspconfig.ts_ls.setup {
-      on_attach = on_attach,
+      on_attach = global_on_attach(client, bufnr),
       root_dir = lspconfig.util.root_pattern("package.json"),
       single_file_support = false
     }
@@ -129,10 +145,7 @@ return {
     --
     --
     lspconfig.lua_ls.setup({
-      on_attach = function(client, bufnr)
-        local opts = { noremap = true, silent = true }
-        -- Add more key mappings as needed
-      end,
+      on_attach = global_on_attach(client, bufnr),
       settings = {
         Lua = {
           completion = {
