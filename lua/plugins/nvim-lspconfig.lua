@@ -5,13 +5,13 @@ local function global_on_attach(client, bufnr)
 
   -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[S]earch [H]elp' })
   -- Example key mappings
-  vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = 'lsp definition' }, opts) -- Go to definition
+  vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = 'lsp definition' }, opts) -- Go to definition
   vim.keymap.set("n", "A", vim.lsp.buf.hover, { desc = 'lsp definition' }, opts)       -- Show hover documentation
-  vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = 'lsp implementation' }, opts) -- Go to implementation
-  vim.keymap.set("n", "<leader>gr", vim.lsp.buf.rename, { desc = 'lsp rename' }, opts) -- Rename symbol
-  vim.keymap.set("n", "<leader>gc", vim.lsp.buf.code_action, { desc = 'code action' }, opts) -- Code actions
-  vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = 'Format buffer' }, opts)
-  vim.keymap.set("n", "<leader>gs", vim.lsp.buf.signature_help, { desc = 'Signature help' }, opts)
+  vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, { desc = 'lsp implementation' }, opts) -- Go to implementation
+  vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = 'lsp rename' }, opts) -- Rename symbol
+  vim.keymap.set("n", "<leader>cc", vim.lsp.buf.code_action, { desc = 'code action' }, opts) -- Code actions
+  vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = 'Format buffer' }, opts)
+  vim.keymap.set("n", "<leader>ch", vim.lsp.buf.signature_help, { desc = 'Signature help' }, opts)
   -- Add any other global bindings here
 end
 

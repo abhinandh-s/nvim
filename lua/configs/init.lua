@@ -4,12 +4,12 @@ o.number = true
 o.relativenumber = true
 o.mouse = 'a'
 o.cursorline = true
-o.undofile = flase
+o.undofile = false
 o.swapfile = false
 o.list = false
 o.tabstop = 2
 o.shiftwidth = 2
-o.expandtab = true 
+o.expandtab = true
 o.autoindent = true
 o.breakindent = true
 o.backspace = "indent,eol,start"
@@ -45,3 +45,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+require('configs.remap')

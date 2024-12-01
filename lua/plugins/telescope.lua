@@ -36,17 +36,39 @@ return {
       pcall(require('telescope').load_extension, 'ui-select')
 
       -- See `:help telescope.builtin`
+      local keymap = vim.keymap.set;
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = '[S]earch [F]iles' })
+      keymap('n', '<leader>fh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+      keymap('n', '<leader>fk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+      keymap('n', '<leader>fa', builtin.find_files, { desc = '[S]earch [A]ll Files' })
+      keymap('n', '<leader>fc', builtin.colorscheme, { desc = '[S]earch [C]olorscheme' })
+      keymap('n', '<leader>ff', builtin.git_files, { desc = '[S]earch Git [F]iles' })
+      keymap('n', '<leader>fh', builtin.registers, { desc = '[S]earch vim register [H]istory' })
+      keymap('n', '<leader>fs', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+      keymap('n', '<leader>fw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+      keymap('n', '<leader>fg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+      keymap('n', '<leader>fd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+      keymap('n', '<leader>fr', builtin.resume, { desc = '[S]earch [R]esume' })
+      keymap('n', '<leader>f.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+      keymap('n', '<leader><leader>', builtin.git_files, { desc = '[S]earch Git [F]iles' })
+      keymap('n', '<leader>sd', builtin.lsp_definitions, { desc = 'Goto the definition' })
+      -- Lists all branches with log preview,
+      -- checkout action <cr>,
+      -- track action <C-t>,
+      -- rebase action<C-r>,
+      -- create action <C-a>,
+      -- switch action <C-s>, 
+      -- delete action <C-d> and
+      -- merge action <C-y>
+      keymap('n', '<leader>sgb', builtin.git_branches, { desc = 'checkout action <cr>, merge action <C-y>' })
+      keymap('n', '<leader>sgs', builtin.git_status, { desc = 'Lists current changes per file with diff preview and add action.' })
+      keymap('n', '<leader>sgt', builtin.git_stash, { desc = 'Lists stash items in current repository with ability to apply them on [<cr>]' })
+      keymap('n', '<leader>si', builtin.lsp_incoming_calls, { desc = 'Lists LSP incoming calls for word under the cursor' })
+      keymap('n', '<leader>sm', builtin.man_pages, { desc = 'Lists manpage entries, opens them in a help window on <cr>' })
+      keymap('n', '<leader>so', builtin.lsp_outgoing_calls, { desc = 'Lists LSP outgoing calls for word under the cursor' })
+      keymap('n', '<leader>sr', builtin.lsp_references, { desc = 'Lists LSP references for word under the cursor' })
+      keymap('n', '<leader>st', builtin.lsp_type_definitions, { desc = 'Goto the type definition' })
+      keymap('n', '<leader>si', builtin.lsp_implementations, { desc = 'Goto the implementation ' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
