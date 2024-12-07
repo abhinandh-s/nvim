@@ -3,17 +3,10 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    dependencies = {
-      -- 'folke/noice.nvim',
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
     ---@type snacks.Config
     opts = {
       bigfile = { enabled = true },
-      dashboard = {
-        enabled = true,
-      },
+      dashboard = { enabled = true },
       notifier = {
         enabled = true,
         timeout = 3000,
@@ -89,7 +82,7 @@ return {
         end,
       })
     end,
-    config = function()
+    Config = function()
       vim.api.nvim_create_autocmd("LspProgress", {
         ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
         callback = function(ev)
@@ -104,6 +97,6 @@ return {
           })
         end,
       })
-    end,
-  },
+    end
+  }
 }

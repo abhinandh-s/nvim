@@ -30,6 +30,7 @@
         llvmPackages.bintools
         tailwindcss-language-server
         emmet-language-server
+        lazygit
         # (vscode-with-extensions.override {
         # vscodeExtensions = with vscode-extensions; [
         # bbenoist.nix
