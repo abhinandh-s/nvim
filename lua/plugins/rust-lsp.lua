@@ -5,9 +5,6 @@ return {
     config = function ()
        require("crates").setup {
         completion = {
-          cmp = {
-            enable = true,
-          },
         },
       }
     end
