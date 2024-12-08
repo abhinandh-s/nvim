@@ -42,7 +42,7 @@ return {
       keymap('n', '<leader>fk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       keymap('n', '<leader>fa', builtin.find_files, { desc = '[S]earch [A]ll Files' })
       keymap('n', '<leader>fc', builtin.colorscheme, { desc = '[S]earch [C]olorscheme' })
-      keymap('n', '<leader>ff', builtin.git_files, { desc = '[S]earch Git [F]iles' })
+      keymap('n', '<leader>ff', builtin.find_files, { desc = '[S]earch [A]ll Files' })
       keymap('n', '<leader>fh', builtin.registers, { desc = '[S]earch vim register [H]istory' })
       keymap('n', '<leader>fs', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       keymap('n', '<leader>fw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
