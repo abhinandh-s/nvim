@@ -1,15 +1,14 @@
-
 local function global_on_attach(client, bufnr)
   -- Set up buffer-specific key mappings using `vim.keymap.set`
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
   -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[S]earch [H]elp' })
   -- Example key mappings
-  vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = 'lsp definition' }, opts) -- Go to definition
-  vim.keymap.set("n", "A", vim.lsp.buf.hover, { desc = 'lsp definition' }, opts)       -- Show hover documentation
+  vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = 'lsp definition' }, opts)         -- Go to definition
+  vim.keymap.set("n", "A", vim.lsp.buf.hover, { desc = 'lsp definition' }, opts)                       -- Show hover documentation
   vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, { desc = 'lsp implementation' }, opts) -- Go to implementation
-  vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = 'lsp rename' }, opts) -- Rename symbol
-  vim.keymap.set("n", "<leader>cc", vim.lsp.buf.code_action, { desc = 'code action' }, opts) -- Code actions
+  vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = 'lsp rename' }, opts)                 -- Rename symbol
+  vim.keymap.set("n", "<leader>cc", vim.lsp.buf.code_action, { desc = 'code action' }, opts)           -- Code actions
   vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = 'Format buffer' }, opts)
   vim.keymap.set("n", "<leader>ch", vim.lsp.buf.signature_help, { desc = 'Signature help' }, opts)
   -- Add any other global bindings here
@@ -50,7 +49,7 @@ return {
     --     }
     --   }
     -- }
-
+    --
     lspconfig.tinymist.setup {
       on_attach = global_on_attach(client, bufnr),
       offset_encoding = "utf-8",
@@ -119,7 +118,7 @@ return {
         debounce_text_changes = 150,
       },
     })
-    -- NOTE: emmet_language_server 
+    -- NOTE: emmet_language_server
     --
     lspconfig.emmet_language_server.setup({
       on_attach = function(client, bufnr)
@@ -141,7 +140,7 @@ return {
         debounce_text_changes = 150,
       },
     })
-    -- 
+    --
     --
     --
     lspconfig.lua_ls.setup({

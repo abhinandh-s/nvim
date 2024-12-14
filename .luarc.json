@@ -1,7 +1,8 @@
 {
     "diagnostics.globals": [
         "vim",
-        "Snacks"
+        "Snacks",
+        "M"
     ],
     "diagnostics.disable": [
         "missing-fields",

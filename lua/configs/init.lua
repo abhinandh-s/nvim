@@ -47,3 +47,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 require('configs.remap')
+require('configs.test')

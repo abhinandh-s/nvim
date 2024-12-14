@@ -15,20 +15,22 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ import = "plugins" },
-	--[[	{ import = "abhi.plugins" },
+  { import = "plugins" },
+  --[[	{ import = "abhi.plugins" },
 	{ import = "abhi.plugins.lsp" },
 	{ import = "abhi.plugins.note_taking" },
 	{ import = "abhi.plugins.themes" },
 	{ import = "abhi.plugins.ui" },
 	{ import = "abhi.plugins.code" },
-	]]--
+	]] --
 }, {
-	checker = {
-		enabled = true,
-		notify = false,
-	},
-	change_detection = {
-		notify = false,
-	},
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
 })
+
+require "just-lsp"

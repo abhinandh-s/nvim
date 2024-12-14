@@ -13,13 +13,13 @@ return {
         end)(),
         dependencies = {
           --[[ {
-            'rafamadriz/friendly-snippets',
+            'abhi-xyz/friendly-snippets',
             config = function()
               require('luasnip.loaders.from_vscode').lazy_load()
             end,
           }, ]]--
           {
-            'abhi-xyz/friendly-snippets',
+            'rafamadriz/friendly-snippets',
             config = function()
               require('luasnip.loaders.from_vscode').lazy_load()
             end,
