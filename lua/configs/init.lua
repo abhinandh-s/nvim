@@ -15,6 +15,8 @@ o.breakindent = true
 o.backspace = "indent,eol,start"
 o.clipboard:append("unnamedplus")
 
+-- Set scrolloff to 8 lines
+o.scrolloff = 8
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
@@ -40,11 +42,12 @@ colorscheme tokyonight-moon
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
+require('configs.term')
 require('configs.remap')
 require('configs.test')

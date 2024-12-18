@@ -1,2 +1,3 @@
 /test/rust_test/target
 /lua/key.lua
+.direnv

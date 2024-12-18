@@ -87,7 +87,7 @@ return {
         ---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
         callback = function(ev)
           local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-          vim.notify(vim.lsp.status(), "info", {
+          vim.notify(vim.lsp.status(), 1, {
             id = "lsp_progress",
             title = "LSP Progress",
             opts = function(notif)
