@@ -50,12 +50,14 @@ return {
     --   }
     -- }
     --
+    --[[
     lspconfig.tinymist.setup {
       on_attach = global_on_attach(client, bufnr),
       offset_encoding = "utf-8",
       root_dir = lspconfig.util.root_pattern("*.typ"),
       single_file_support = true
     }
+    ]]--
 
     lspconfig.denols.setup({
       on_attach = function(client, bufnr)

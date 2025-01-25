@@ -28,7 +28,7 @@ return {
         "lua",
         "rust",
       },
-      ignore_install = { "org" },
+     -- ignore_install = { "org" },
       incremental_selection = {
         enable = true,
         keymaps = {
