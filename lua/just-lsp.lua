@@ -2,7 +2,12 @@ local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
 
 
---
+vim.filetype.add({
+  extension = {
+    lime = "lime",
+  },
+})
+
 -- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 --   pattern = "*.age",
 --   callback = function()
@@ -11,19 +16,19 @@ local configs = require("lspconfig.configs")
 --   end,
 -- })
 
-if not configs.md_lsp then
-  configs.md_lsp = {
+if not configs.neorg_analyzer then
+  configs.neorg_analyzer = {
     default_config = {
-      cmd = { "md-lsp" },                                                  -- Path to your LSP binary
-      filetypes = { "markdown", "ebnf" },                           -- Replace with the filetypes your LSP handles
-      root_dir = lspconfig.util.root_pattern(".git", ".your_project_root"),  -- Define your project root
+      cmd = { "neorg-analyzer" },                                                  -- Path to your LSP binary
+      filetypes = { "norg" },                           -- Replace with the filetypes your LSP handles
+      root_dir = lspconfig.util.root_pattern(".git", "main.norg"),  -- Define your project root
       settings = {},                                                         -- Add any server-specific settings here
     },
   }
 end
 
 -- Setup your server
-lspconfig.md_lsp.setup({
+lspconfig.neorg_analyzer.setup({
   -- capabilities = vim.lsp.protocol.make_client_capabilities(),
   on_attach = function(client, bufnr)
     -- print(vim.inspect(client.server_capabilities))

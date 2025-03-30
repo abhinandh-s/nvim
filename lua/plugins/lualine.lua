@@ -52,7 +52,7 @@ return {
 
     -- LSP status function with lightning symbol
     local function lsp_status()
-      local clients = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
+      local clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
       if next(clients) == nil then
         return "  No LSP"
       end

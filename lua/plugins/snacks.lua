@@ -11,6 +11,17 @@ return {
         enabled = true,
         timeout = 3000,
       },
+      -- explorer = {
+      --   replace_netrw = true, -- Replace netrw with the snacks explorer
+      -- },
+      -- picker = {
+      --   sources = {
+      --     explorer = {
+      --       -- your explorer picker configuration comes here
+      --       -- or leave it empty to use the default settings
+      --     }
+      --   }
+      -- },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },

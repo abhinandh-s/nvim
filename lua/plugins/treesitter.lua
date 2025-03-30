@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-    "hiphish/rainbow-delimiters.nvim",
+   -- "hiphish/rainbow-delimiters.nvim",
     "windwp/nvim-autopairs",
     "windwp/nvim-ts-autotag",
   },
@@ -27,6 +27,8 @@ return {
       ensure_installed = {
         "lua",
         "rust",
+        "org",
+        "typst",
       },
      -- ignore_install = { "org" },
       incremental_selection = {
@@ -49,5 +51,15 @@ return {
         },
       },
     })
+
+    -- Associate .lime files with Typst
+    vim.filetype.add({
+      extension = {
+        lime = "typst", -- ✅ Tell Neovim that .lime files are Typst
+      },
+    })
+
+    -- Ensure Tree-sitter treats .lime as Typst syntax
+    require("nvim-treesitter.parsers").get_parser_configs().typst.filetype_to_parsername = { "typst", "lime" }
   end,
 }
