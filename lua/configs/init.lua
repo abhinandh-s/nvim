@@ -27,18 +27,16 @@ vim.g.maplocalleader = "\\"
 
 vim.lsp.inlay_hint.enable(true)
 
---[[
+vim.diagnostic.config({
+  -- Use the default configuration
+  virtual_lines = true
 
-colorscheme tokyonight
-
-" There are also colorschemes for the different styles.
-
-colorscheme tokyonight-night
-colorscheme tokyonight-storm
-colorscheme tokyonight-day
-colorscheme tokyonight-moon
-
-]]--
+  -- Alternatively, customize specific options
+  -- virtual_lines = {
+  --  -- Only show virtual line diagnostics for the current cursor line
+  --  current_line = true,
+  -- },
+})
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
