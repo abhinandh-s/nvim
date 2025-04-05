@@ -24,18 +24,20 @@ o.scrolloff = 8
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- vim.g.do_filetype_lua = 1
+-- vim.g.did_load_filetypes = 1
 
 vim.lsp.inlay_hint.enable(true)
 
 vim.diagnostic.config({
   -- Use the default configuration
-  virtual_lines = true
+  -- virtual_lines = true
 
   -- Alternatively, customize specific options
-  -- virtual_lines = {
-  --  -- Only show virtual line diagnostics for the current cursor line
-  --  current_line = true,
-  -- },
+  virtual_lines = {
+    --  -- Only show virtual line diagnostics for the current cursor line
+    current_line = true,
+  },
 })
 
 vim.api.nvim_create_autocmd('TextYankPost', {

@@ -23,41 +23,21 @@ return {
   },
   config = function()
     local lspconfig = require('lspconfig')
-    --  lspconfig.rust_analyzer.setup {
-    --   capabilities = {
-    --     experimental = {
-    --       serverStatusNotification = true
-    --     }
-    --   },
-    --   single_file_support = true,
-    --   settings = {
-    --     ['rust-analyzer'] = {
-    --       cargo = {
-    --         features = "all",
-    --       },
-    --       diagnostics = {
-    --         enable = true;
-    --       },
-    --       inlayHints = {
-    --         bindingModeHints = {
-    --           enable = true,
-    --         },
-    --         chainingHints = {
-    --           enable = true,
-    --         },
-    --       },
-    --     }
-    --   }
-    -- }
-    --
-    --[[
-    lspconfig.tinymist.setup {
+    
+    lspconfig.lua_ls.setup({
       on_attach = global_on_attach(client, bufnr),
-      offset_encoding = "utf-8",
-      root_dir = lspconfig.util.root_pattern("*.typ"),
-      single_file_support = true
-    }
-    ]]--
+      settings = {
+        Lua = {
+          completion = {
+            callSnippet = 'Replace',
+          },
+          diagnostics = { disable = { 'missing-fields' } },
+        },
+      },
+      flags = {
+        debounce_text_changes = 150,
+      },
+    })
 
     lspconfig.denols.setup({
       on_attach = function(client, bufnr)
@@ -72,11 +52,6 @@ return {
         debounce_text_changes = 150,
       },
     })
-    lspconfig.ts_ls.setup {
-      on_attach = global_on_attach(client, bufnr),
-      root_dir = lspconfig.util.root_pattern("package.json"),
-      single_file_support = false
-    }
 
     lspconfig.tailwindcss.setup({
       on_attach = function(client, bufnr)
@@ -142,23 +117,7 @@ return {
         debounce_text_changes = 150,
       },
     })
-    --
-    --
-    --
-    lspconfig.lua_ls.setup({
-      on_attach = global_on_attach(client, bufnr),
-      settings = {
-        Lua = {
-          completion = {
-            callSnippet = 'Replace',
-          },
-          diagnostics = { disable = { 'missing-fields' } },
-        },
-      },
-      flags = {
-        debounce_text_changes = 150,
-      },
-    })
+
     lspconfig.nixd.setup({
       on_attach = function(client, bufnr)
         local opts = { noremap = true, silent = true }

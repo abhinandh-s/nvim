@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-   -- "hiphish/rainbow-delimiters.nvim",
+    "hiphish/rainbow-delimiters.nvim",
     "windwp/nvim-autopairs",
     "windwp/nvim-ts-autotag",
   },

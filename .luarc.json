@@ -2,11 +2,11 @@
     "diagnostics.globals": [
         "vim",
         "Snacks",
-        "M"
     ],
     "diagnostics.disable": [
         "missing-fields",
         "undefined-doc-name",
-        "undefined-field"
+        "undefined-field",
+        "trailing-space"
     ]
 }

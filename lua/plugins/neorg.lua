@@ -1,5 +1,9 @@
 return {
   {
+    "OXY2DEV/markview.nvim",
+    lazy = false
+  },
+  {
     "nvim-neorg/neorg",
     lazy = false,
     version = "*",
