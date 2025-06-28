@@ -27,7 +27,6 @@ return {
       ensure_installed = {
         "lua",
         "rust",
-        "org",
         "typst",
       },
      -- ignore_install = { "org" },
@@ -52,14 +51,10 @@ return {
       },
     })
 
-    -- Associate .lime files with Typst
     vim.filetype.add({
       extension = {
-        lime = "typst", -- ✅ Tell Neovim that .lime files are Typst
+        lime = "lime",
       },
     })
-
-    -- Ensure Tree-sitter treats .lime as Typst syntax
-    require("nvim-treesitter.parsers").get_parser_configs().typst.filetype_to_parsername = { "typst", "lime" }
   end,
 }

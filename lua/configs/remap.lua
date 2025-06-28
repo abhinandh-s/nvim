@@ -60,3 +60,4 @@ keymap("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })     
 keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 
+keymap('n', '<leader>nhl', ':nohlsearch<CR>', { desc = "no highlight search" })

@@ -1,7 +1,7 @@
 return {
   'saghen/blink.cmp',
   dependencies = {
-    'rafamadriz/friendly-snippets',
+    {dir = '/home/abhi/git/friendly-snippets'},
     { 'L3MON4D3/LuaSnip', version = 'v2.*' },
   },
   version = '1.*',

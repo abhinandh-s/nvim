@@ -1,45 +1,36 @@
--- local lspconfig = require("lspconfig")
--- local configs = require("lspconfig.configs")
---
---
--- vim.filetype.add({
---   extension = {
---     lime = "lime",
---   },
--- })
---
--- -- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
--- --   pattern = "*.age",
--- --   callback = function()
--- --     print("Lua file opened")
--- --     vim.cmd("Just decrypt")
--- --   end,
--- -- })
---
--- if not configs.neorg_analyzer then
---   configs.neorg_analyzer = {
---     default_config = {
---       cmd = { "neorg-analyzer" },                                                  -- Path to your LSP binary
---       filetypes = { "norg" },                           -- Replace with the filetypes your LSP handles
---       root_dir = lspconfig.util.root_pattern(".git", "main.norg"),  -- Define your project root
---       settings = {},                                                         -- Add any server-specific settings here
---     },
---   }
--- end
---
--- -- Setup your server
--- lspconfig.neorg_analyzer.setup({
---   -- capabilities = vim.lsp.protocol.make_client_capabilities(),
---   on_attach = function(client, bufnr)
---     -- print(vim.inspect(client.server_capabilities))
---     -- Optional: Customize keybindings for LSP
---     local bufopts = { noremap = true, silent = true, buffer = bufnr }
---     vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
---     vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
---   end,
--- --  capabilities = capabilities,
--- })
---
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
+
+vim.filetype.add({
+  extension = {
+    norg = "norg",
+  },
+})
+
+if not configs.neorg_analyzer then
+  configs.neorg_analyzer = {
+    default_config = {
+      cmd = { "/home/abhi/.cargo/__cache/target/debug/neorg-analyzer" },                                                  -- Path to your LSP binary
+      filetypes = { "norg" },                           -- Replace with the filetypes your LSP handles
+       root_dir = lspconfig.util.root_pattern("*"),  -- Define your project root
+      settings = {},                                                         -- Add any server-specific settings here
+    },
+  }
+end
+
+-- Setup your server
+lspconfig.neorg_analyzer.setup({
+  -- capabilities = vim.lsp.protocol.make_client_capabilities(),
+  on_attach = function(client, bufnr)
+    -- print(vim.inspect(client.server_capabilities))
+    -- Optional: Customize keybindings for LSP
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+  end,
+--  capabilities = capabilities,
+})
+
 -- if not configs.typst_analyzer then
 --   configs.typst_analyzer = {
 --     default_config = {
@@ -108,33 +99,34 @@
 --
 --
 --
--- vim.filetype.add {
---   extension = {
---     lime = "lime",
---   },
--- }
---
--- if not configs.lime_analyzer then
---   configs.lime_analyzer = {
---     default_config = {
---       cmd = { "lime-analyzer" },                                                  -- Path to your LSP binary
---       filetypes = { "lime" },                           -- Replace with the filetypes your LSP handles
---       root_dir = lspconfig.util.root_pattern(".git", "basket.toml"),  -- Define your project root
---       settings = {},                                                         -- Add any server-specific settings here
---     },
---   }
--- end
---
--- -- Setup your server
--- lspconfig.lime_analyzer.setup({
---   -- capabilities = vim.lsp.protocol.make_client_capabilities(),
---   on_attach = function(client, bufnr)
---     -- print(vim.inspect(client.server_capabilities))
---     -- Optional: Customize keybindings for LSP
---     local bufopts = { noremap = true, silent = true, buffer = bufnr }
---     vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
---     vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
---   end,
--- --  capabilities = capabilities,
--- })
+vim.filetype.add {
+  extension = {
+    lime = "lime",
+  },
+}
+
+if not configs.lime_analyzer then
+  configs.lime_analyzer = {
+    default_config = {
+      cmd = { "/home/abhi/.cargo/__cache/target/debug/lime-analyzer" },                                                  -- Path to your LSP binary
+      filetypes = { "lime" },                           -- Replace with the filetypes your LSP handles
+      root_dir = lspconfig.util.root_pattern("*.*"),  -- Define your project root
+      settings = {},                                                         -- Add any server-specific settings here
+    },
+  }
+end
+
+-- Setup your server
+lspconfig.lime_analyzer.setup({
+  -- capabilities = vim.lsp.protocol.make_client_capabilities(),
+  on_attach = function(_, bufnr)
+    -- print(vim.inspect(client.server_capabilities))
+    -- Optional: Customize keybindings for LSP
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+  end,
+--  capabilities = capabilities,
+})
+
 

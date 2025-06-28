@@ -19,7 +19,7 @@ return {
             end,
           }, ]]--
           {
-            'rafamadriz/friendly-snippets',
+            dir = '/home/abhi/git/friendly-snippets',
             config = function()
               require('luasnip.loaders.from_vscode').lazy_load()
             end,

@@ -31,4 +31,4 @@ require("lazy").setup({
   },
 })
 
--- require "just-lsp"
+require "just-lsp"

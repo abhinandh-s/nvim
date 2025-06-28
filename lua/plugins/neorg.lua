@@ -1,7 +1,16 @@
 return {
   {
     "OXY2DEV/markview.nvim",
-    lazy = false
+    lazy = false,
+    config = function()
+      local presets = require("markview.presets");
+
+      require("markview").setup({
+        preview = {
+        icon_provider = "mini", -- "mini" or "devicons"
+    }
+      });
+    end
   },
   {
     "nvim-neorg/neorg",
@@ -10,26 +19,13 @@ return {
     config = function()
       require("neorg").setup {
         load = {
-          ["core.defaults"] = {},
-          ["core.highlights"] = {},
           ["core.concealer"] = {
             config = {
               icon_preset = "diamond",
             },
           },
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                notes = "~/notes",
-              },
-              default_workspace = "notes",
-            },
-          },
         },
       }
-
-      vim.wo.foldlevel = 99
-      vim.wo.conceallevel = 2
     end,
   },
 }
