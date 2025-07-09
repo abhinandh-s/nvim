@@ -23,7 +23,7 @@ return {
         { label = '%-%-theme%-secondary%-color', color = '#5a5d64' },
       },
 
-      exclude_filetypes = { 'markdown' },
+      exclude_filetypes = { 'markdown', 'neorg' },
       exclude_buftypes = {}
     }
   end,

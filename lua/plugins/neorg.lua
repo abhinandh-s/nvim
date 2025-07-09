@@ -1,31 +1,31 @@
 return {
-  {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
-    config = function()
-      local presets = require("markview.presets");
-
-      require("markview").setup({
-        preview = {
-        icon_provider = "mini", -- "mini" or "devicons"
-    }
-      });
-    end
-  },
-  {
-    "nvim-neorg/neorg",
-    lazy = false,
-    version = "*",
-    config = function()
-      require("neorg").setup {
-        load = {
-          ["core.concealer"] = {
-            config = {
-              icon_preset = "diamond",
-            },
-          },
-        },
-      }
-    end,
-  },
+  --  {
+  --    "OXY2DEV/markview.nvim",
+  --    lazy = false,
+  --    config = function()
+  --      local presets = require("markview.presets");
+  --
+  --      require("markview").setup({
+  --        preview = {
+  --        icon_provider = "mini", -- "mini" or "devicons"
+  --    }
+  --      });
+  --    end
+  --  },
+--  {
+--    "nvim-neorg/neorg",
+--    lazy = false,
+--    version = "*",
+--    config = function()
+--      require("neorg").setup {
+--        load = {
+--          ["core.concealer"] = {
+--            config = {
+--              icon_preset = "diamond",
+--            },
+--          },
+--        },
+--      }
+--    end,
+--  },
 }

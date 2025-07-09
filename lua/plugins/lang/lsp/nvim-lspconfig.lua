@@ -1,37 +1,40 @@
-local function global_on_attach(client, bufnr)
-  -- Set up buffer-specific key mappings using `vim.keymap.set`
-  local opts = { noremap = true, silent = true, buffer = bufnr }
+local on_attach = require("configs.global").global.on_attach
+local lspconfig = require('lspconfig')
+local configs = require("lspconfig.configs")
 
-  -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-  -- Example key mappings
-  vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = 'lsp definition' }, opts)         -- Go to definition
-  vim.keymap.set("n", "A", vim.lsp.buf.hover, { desc = 'lsp definition' }, opts)                       -- Show hover documentation
-  vim.keymap.set("n", "<leader>ci", vim.lsp.buf.implementation, { desc = 'lsp implementation' }, opts) -- Go to implementation
-  vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = 'lsp rename' }, opts)                 -- Rename symbol
-  vim.keymap.set("n", "<leader>cc", vim.lsp.buf.code_action, { desc = 'code action' }, opts)           -- Code actions
-  vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = 'Format buffer' }, opts)
-  vim.keymap.set("n", "<leader>ch", vim.lsp.buf.signature_help, { desc = 'Signature help' }, opts)
-  -- Add any other global bindings here
+vim.filetype.add({
+  extension = {
+    norg = "norg",
+  },
+})
+
+if not configs.neorg_analyzer then
+  configs.neorg_analyzer = {
+    default_config = {
+      cmd = { "/home/abhi/.cargo/__cache/target/debug/neorg-analyzer" },
+      filetypes = { "norg" },
+      root_dir = lspconfig.util.root_pattern("*"),
+      settings = {},
+    },
+  }
 end
 
 return {
   'neovim/nvim-lspconfig',
-  init_options = {
-    userLanguages = {
-      rust = "html",
-    },
-  },
   config = function()
-    local lspconfig = require('lspconfig')
-    
+
+    lspconfig.neorg_analyzer.setup({
+      on_attach = on_attach,
+    })
+
     lspconfig.lua_ls.setup({
-      on_attach = global_on_attach(client, bufnr),
+      on_attach = on_attach,
       settings = {
         Lua = {
           completion = {
             callSnippet = 'Replace',
           },
-          diagnostics = { disable = { 'missing-fields' } },
+          diagnostics = { disable = {} },
         },
       },
       flags = {
@@ -40,24 +43,16 @@ return {
     })
 
     lspconfig.denols.setup({
-      on_attach = function(client, bufnr)
-        local opts = { noremap = true, silent = true }
-        -- Add more key mappings as needed
-      end,
+      on_attach = on_attach,
       root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-      settings = {
-        -- Add any server-specific settings here
-      },
+      settings = {},
       flags = {
         debounce_text_changes = 150,
       },
     })
 
     lspconfig.tailwindcss.setup({
-      on_attach = function(client, bufnr)
-        local opts = { noremap = true, silent = true }
-        -- Add more key mappings as needed
-      end,
+      on_attach = on_attach,
       filetypes = {
         "gohtml",
         "gohtmltmpl",
@@ -95,13 +90,9 @@ return {
         debounce_text_changes = 150,
       },
     })
-    -- NOTE: emmet_language_server
-    --
+
     lspconfig.emmet_language_server.setup({
-      on_attach = function(client, bufnr)
-        local opts = { noremap = true, silent = true }
-        -- Add more key mappings as needed
-      end,
+      on_attach = on_attach,
       settings = {
         filetypes = {
           'css',
@@ -119,10 +110,7 @@ return {
     })
 
     lspconfig.nixd.setup({
-      on_attach = function(client, bufnr)
-        local opts = { noremap = true, silent = true }
-        -- Add more key mappings as needed
-      end,
+      on_attach = on_attach,
       cmd = { "nixd" },
       settings = {
         nixd = {
