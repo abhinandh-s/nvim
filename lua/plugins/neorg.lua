@@ -1,4 +1,9 @@
 return {
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    opts = {},
+  },
   --  {
   --    "OXY2DEV/markview.nvim",
   --    lazy = false,
@@ -12,20 +17,21 @@ return {
   --      });
   --    end
   --  },
---  {
---    "nvim-neorg/neorg",
---    lazy = false,
---    version = "*",
---    config = function()
---      require("neorg").setup {
---        load = {
---          ["core.concealer"] = {
---            config = {
---              icon_preset = "diamond",
---            },
---          },
---        },
---      }
---    end,
---  },
+  {
+    "nvim-neorg/neorg",
+    lazy = false,
+    version = "*",
+    dependencies = { "nvim-neorg/lua-utils.nvim" },
+    config = function()
+      require("neorg").setup {
+        load = {
+          ["core.concealer"] = {
+            config = {
+              icon_preset = "diamond",
+            },
+          },
+        },
+      }
+    end,
+  },
 }

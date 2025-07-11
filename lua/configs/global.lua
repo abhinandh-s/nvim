@@ -1,5 +1,25 @@
 local M = {}
 
+-- cond = function() -- -- `cond` is a condition used to determine whether this plugin should be installed and loaded.
+--  return vim.fn.executable 'make' == 1
+-- end,
+
+-- ref: https://stackoverflow.com/questions/1340230/check-if-directory-exists-in-lua
+--
+-- Check if a file or directory exists in this path
+local function dir_exists(path)
+  local ok, _, code = os.rename(path, path)
+  if not ok then
+    if code == 13 then
+      -- permission denied, but it exists
+      return true
+    end
+    return false
+  end
+  return true
+end
+
+
 local function global_on_attach()
   vim.keymap.set("n", "<leader>cd", vim.lsp.buf.definition, { desc = 'lsp go to definition' })
   vim.keymap.set("n", "A", vim.lsp.buf.hover, { desc = 'lsp hover documentation' })
@@ -11,7 +31,9 @@ local function global_on_attach()
 end
 
 M.global = {
-  on_attach = global_on_attach()
+  on_attach = global_on_attach
 }
+
+M.dir_exists = dir_exists
 
 return M

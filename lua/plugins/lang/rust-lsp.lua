@@ -14,18 +14,14 @@ return {
     version = '^5', -- Recommended
     lazy = false,   -- This plugin is already lazy
     config = function()
+local on_attach = require("configs.global").global.on_attach
       vim.g.rustaceanvim = {
         -- Plugin configuration
         tools = {
         },
         -- LSP configuration
         server = {
-          on_attach = function(client, bufnr)
-            vim.keymap.set("n", "<leader>bb", vim.diagnostic.open_float, bufopts)
-            vim.keymap.set("n", "<leader>bp", vim.diagnostic.goto_prev, bufopts)
-            vim.keymap.set("n", "<leader>bn", vim.diagnostic.goto_next, bufopts)
-            -- you can also put keymaps in here
-          end,
+          on_attach = on_attach,
           --[[
          cmd = {
             "rustup", "run", "stable", "rust-analyzer",
