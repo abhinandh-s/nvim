@@ -8,15 +8,10 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-    local treesitter = require("nvim-treesitter.configs")
+    local treesitter = require("nvim-treesitter")
     treesitter.setup({
       highlight = {
         enable = true,
-        custom_captures = {
-          ["tex"] = {
-            ["function.declaration"] = "TSFunction", -- Change the TSFunction to your highlight group
-          },
-        },
       },
       indent = { enable = true },
       autotag = {
@@ -44,16 +39,9 @@ return {
         autopairs = {
           enable = true,
         },
-
         rainbow = {
           enable = true,
         },
-      },
-    })
-
-    vim.filetype.add({
-      extension = {
-        lime = "lime",
       },
     })
   end,

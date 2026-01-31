@@ -51,3 +51,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('configs.term')
 require('configs.remap')
 require('configs.test')
+
+
+local on_attach = require("configs.global").global.on_attach
+
+vim.lsp.enable({ 
+  "lua_ls",
+  "gfm_analyzer", 
+  "emmet_language_server", 
+  "tailwindcss",
+  "deno_ls",
+ -- "nixd",
+});
+
+vim.lsp.config("*", {
+  on_attach = on_attach()
+})
