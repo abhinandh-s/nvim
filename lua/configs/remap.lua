@@ -33,6 +33,7 @@ vim.keymap.set('n', 'cw', '"_ciw', { desc = "Change word under cursor without ya
 
 -- window management
 keymap("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })     -- split window vertically
+keymap("n", "<leader><CR>", "<C-w>v", { desc = "Split window vertically" })     -- split window vertically
 keymap("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })   -- split window horizontally
 keymap("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })      -- make split windows equal width & height
 keymap("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window

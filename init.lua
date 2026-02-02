@@ -28,3 +28,10 @@ require("lazy").setup({
     notify = false,
   },
 })
+
+
+vim.opt.colorcolumn = "80"
+
+
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "#303446" })
+vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#303446" })
