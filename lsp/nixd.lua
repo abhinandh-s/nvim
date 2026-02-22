@@ -1,4 +1,7 @@
 return {
+  filetypes = {
+    "nix"
+  },
   cmd = { "nixd" },
   settings = {
     nixd = {
@@ -6,7 +9,7 @@ return {
         expr = "import <nixpkgs> { }",
       },
       formatting = {
-        command = { "alejandra" },     -- or nixfmt or nixpkgs-fmt
+        command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
       },
       options = {
         nixos = {

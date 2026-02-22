@@ -60,5 +60,5 @@ keymap("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })         
 keymap("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })                 --  go to previous tab
 keymap("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
-
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 keymap('n', '<leader>nhl', ':nohlsearch<CR>', { desc = "no highlight search" })

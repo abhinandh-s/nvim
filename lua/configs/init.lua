@@ -59,9 +59,9 @@ vim.lsp.enable({
   "lua_ls",
   "gfm_analyzer", 
   "emmet_language_server", 
-  "tailwindcss",
+  "tailwindcss_language_server",
   "deno_ls",
- -- "nixd",
+  "nixd",
 });
 
 vim.lsp.config("*", {

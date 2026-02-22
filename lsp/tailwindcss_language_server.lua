@@ -1,11 +1,10 @@
 return {
+  cmd = { 'tailwindcss-language-server', '--stdio' },
+  root_markers = { "deno.json", "deno.jsonc", "main.ts", "run.ts" },
   filetypes = {
-    "gohtml",
-    "gohtmltmpl",
+--    "rust",
     "html",
-    "php",
     "css",
-    "postcss",
     "sass",
     "scss",
     "javascript",

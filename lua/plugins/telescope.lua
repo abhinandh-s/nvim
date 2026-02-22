@@ -2,7 +2,6 @@ return {
  {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
-    branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -29,20 +28,19 @@ return {
       -- See `:help telescope.builtin`
       local keymap = vim.keymap.set;
       local builtin = require 'telescope.builtin'
-      keymap('n', '<leader>fh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      keymap('n', '<leader>fk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      keymap('n', '<leader>fa', builtin.find_files, { desc = '[S]earch [A]ll Files' })
-      keymap('n', '<leader>fc', builtin.colorscheme, { desc = '[S]earch [C]olorscheme' })
-      keymap('n', '<leader>ff', builtin.find_files, { desc = '[S]earch [A]ll Files' })
-      keymap('n', '<leader>fh', builtin.registers, { desc = '[S]earch vim register [H]istory' })
-      keymap('n', '<leader>fs', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      keymap('n', '<leader>fw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      keymap('n', '<leader>fg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      keymap('n', '<leader>fd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      keymap('n', '<leader>fr', builtin.resume, { desc = '[S]earch [R]esume' })
-      keymap('n', '<leader>f.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      keymap('n', '<leader><leader>', builtin.git_files, { desc = '[S]earch Git [F]iles' })
-      keymap('n', '<leader>sd', builtin.lsp_definitions, { desc = 'Goto the definition' })
+
+      -- General Search
+      keymap('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+      keymap('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
+      keymap('n', '<leader>fb', builtin.buffers, { desc = '[F]ind [B]uffers' })
+      keymap('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
+      keymap('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
+      keymap('n', '<leader>fr', builtin.registers, { desc = '[F]ind [R]egisters' })
+      
+      -- LSP specific
+      keymap('n', '<leader>sd', builtin.lsp_definitions, { desc = '[S]earch [D]efinition' })
+      keymap('n', '<leader>sr', builtin.lsp_references, { desc = '[S]earch [R]eferences' })
+      keymap('n', '<leader>si', builtin.lsp_implementations, { desc = '[S]earch [I]mplementations' })
       -- Lists all branches with log preview,
       -- checkout action <cr>,
       -- track action <C-t>,
