@@ -1,3 +1,33 @@
+local colors = {
+  blue       = "#89b4fa",
+  mauve      = "#cba6f7",
+  pink       = "#f5c2e7",
+  red        = "#f38ba8",
+  cherry_red = "#e52e71",
+}
+
+local highlights = {
+  ["markdownH1"]          = { fg = colors.cherry_red, bold = true },
+  ["markdownH2"]          = { fg = colors.cherry_red, bold = true },
+  ["markdownH3"]          = { fg = colors.cherry_red, bold = true },
+  ["markdownH4"]          = { fg = colors.cherry_red, bold = true },
+  ["markdownH5"]          = { fg = colors.cherry_red, bold = true },
+  ["markdownH6"]          = { fg = colors.cherry_red, bold = true },
+  ["markdownH1Delimiter"] = { fg = colors.cherry_red, bold = true },
+  ["markdownH2Delimiter"] = { fg = colors.cherry_red, bold = true },
+  ["markdownH3Delimiter"] = { fg = colors.cherry_red, bold = true },
+  ["markdownH4Delimiter"] = { fg = colors.cherry_red, bold = true },
+  ["markdownH5Delimiter"] = { fg = colors.cherry_red, bold = true },
+  ["markdownH6Delimiter"] = { fg = colors.cherry_red, bold = true },
+  ["@markup.link.label"]  = { fg = colors.mauve },
+  ["@markup.italic"]      = { fg = colors.pink, italic = true },
+  ["@markup.strong"]      = { fg = colors.red, bold = true },
+}
+
+for group, settings in pairs(highlights) do
+  vim.api.nvim_set_hl(0, group, settings)
+end
+
 require "configs"
 
 -- Bootstrap lazy.nvim
@@ -16,9 +46,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { import = "plugins" },
-	{ import = "plugins.lang" },
-	{ import = "plugins.ui" },
---	{ import = "plugins.lang.lsp" }
+  { import = "plugins.lang" },
+  { import = "plugins.ui" },
+  --	{ import = "plugins.lang.lsp" }
 }, {
   checker = {
     enabled = true,

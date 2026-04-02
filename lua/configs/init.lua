@@ -51,9 +51,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 require('configs.term')
 require('configs.remap')
 require('configs.test')
+require('configs.plugins')
 
-
-local on_attach = require("configs.global").global.on_attach
+local on_attach = require("global").global.on_attach
 
 vim.lsp.enable({ 
   "lua_ls",

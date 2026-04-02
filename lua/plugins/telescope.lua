@@ -36,7 +36,8 @@ return {
       keymap('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
       keymap('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
       keymap('n', '<leader>fr', builtin.registers, { desc = '[F]ind [R]egisters' })
-      
+     keymap('n', '<leader>fc', builtin.colorscheme, { desc = '[S]earch [C]olorscheme' })
+
       -- LSP specific
       keymap('n', '<leader>sd', builtin.lsp_definitions, { desc = '[S]earch [D]efinition' })
       keymap('n', '<leader>sr', builtin.lsp_references, { desc = '[S]earch [R]eferences' })

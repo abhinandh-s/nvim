@@ -20,6 +20,7 @@ return {
           },
         },
       },
+    --  { dir = "/home/abhi/projects/cmplitor" },
       'saecki/crates.nvim',
       'saadparwaiz1/cmp_luasnip',
       'neovim/nvim-lspconfig',
@@ -75,6 +76,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = "buffer" }, -- text within the current buffer
+       --   { name = 'cmplitor', priority = 10 },
           { name = 'path' },
           { name = 'crates' },
         },

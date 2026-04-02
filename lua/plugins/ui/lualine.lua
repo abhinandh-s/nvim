@@ -1,3 +1,4 @@
+
 return {
   {
     "nvim-lualine/lualine.nvim",
@@ -5,8 +6,10 @@ return {
     config = function()
       local lualine = require("lualine")
       local lazy_status = require("lazy.status")
+
+      local mocha = require('colors').mocha
       local colors = {
-        blue = "#b4befe",
+        blue = mocha.lavender,
         green = "#a7c080",
         pink = "#d699b6",
         pink_moon = "#393552",
@@ -40,7 +43,7 @@ return {
           c = { bg = colors.bg, fg = colors.fg },
         },
         replace = {
-          a = { bg = colors.red, fg = colors.bg, gui = "bold" },
+          a = { bg = mocha.red, fg = colors.bg, gui = "bold" },
           b = { bg = colors.bg, fg = colors.fg },
           c = { bg = colors.bg, fg = colors.fg },
         },
@@ -79,7 +82,7 @@ return {
             {
               lazy_status.updates,
               cond = lazy_status.has_updates,
-              color = { fg = "#f38ba8" },
+              color = { fg = mocha.red },
             },
             { "encoding" },
             { "fileformat" },

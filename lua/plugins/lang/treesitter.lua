@@ -44,5 +44,19 @@ return {
         },
       },
     })
+
+    -- vim.api.nvim_create_autocmd("FileType", {
+    --   pattern = "*",
+    --   callback = function()
+    --     if pcall(vim.treesitter.start) then
+    --       -- Indent expérimental
+    --       -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    --       -- Folds
+    --       vim.wo[0][0].foldmethod = "expr"
+    --       vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    --     end
+    --   end,
+    -- })
+
   end,
 }

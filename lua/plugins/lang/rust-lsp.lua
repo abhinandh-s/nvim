@@ -14,7 +14,7 @@ return {
     version = '*', -- Recommended
     lazy = false,   -- This plugin is already lazy
     config = function()
-local on_attach = require("configs.global").global.on_attach
+local on_attach = require("global").global.on_attach
       vim.g.rustaceanvim = {
         -- Plugin configuration
         tools = {

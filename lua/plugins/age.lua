@@ -1,4 +1,4 @@
-local dir_exists = require('configs.global').dir_exists
+local dir_exists = require('global').dir_exists
 
 local plugins = {}
 
