@@ -1,5 +1,13 @@
 {
   "plugins": {
+    "reader.nvim": {
+      "rev": "2be8e3b50b0a04c03561fe0789b9c114f71abec0",
+      "src": "https://github.com/Sang-it/reader.nvim"
+    },
+    "slimline.nvim": {
+      "rev": "2ca5a979698fd0af0406770fa5dc81899fb53106",
+      "src": "https://github.com/sschleemilch/slimline.nvim"
+    },
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim"

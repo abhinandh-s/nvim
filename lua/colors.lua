@@ -1,4 +1,7 @@
 return  {
+  cherry = {
+    red = "#e52e71",
+  },
   mocha  =  {
     rosewater  =  "#f5e0dc",
     flamingo  =  "#f2cdcd",

@@ -52,6 +52,7 @@ require('configs.term')
 require('configs.remap')
 require('configs.test')
 require('configs.plugins')
+require('configs.statusline')
 
 local on_attach = require("global").global.on_attach
 
