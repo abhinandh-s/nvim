@@ -1,4 +1,6 @@
+---@type ColorPalette
 local palette = require('colors')
+local monet_colors = require('monet.colors')
 
 local highlights = {
   ["CMODE"] = { bg = palette.cherry.red, fg = palette.mocha.text, bold = true },
@@ -19,7 +21,7 @@ local function get_lsp_status()
   for _, client in ipairs(buf_clients) do
     table.insert(client_names, client.name)
   end
-  return " ⭘ " .. table.concat(client_names, ", ") .. " "
+  return "⭘ " .. table.concat(client_names, ", ") .. " "
 end
 
 -- Map mode codes to labels
@@ -59,7 +61,7 @@ function _G.status_line()
 
     -- RIGHT SIDE (The %= pushes everything after it to the far right)
     "%=",
-    "%#CLSP#", " %y",            -- Filetype
+    "%#CLSP#", " %y ",            -- Filetype
     "%#CLSP#", get_lsp_status(), -- LSP Name in info color
     "%#LEFT#", " %l:%c ",        -- Line:Column
   })

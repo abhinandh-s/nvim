@@ -48,6 +48,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+require('configs.theme')
 require('configs.term')
 require('configs.remap')
 require('configs.test')
@@ -63,6 +64,7 @@ vim.lsp.enable({
   "tailwindcss_language_server",
   "deno_ls",
   "nixd",
+  "rust_analyzer"
 });
 
 vim.lsp.config("*", {

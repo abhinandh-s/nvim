@@ -1,10 +1,10 @@
-local dir_exists = require('configs.global').dir_exists
+local dir_exists = require('global').dir_exists
 
 local plugins = {}
 
-if dir_exists("/home/abhi/git/monet.nvim/") then
+if dir_exists("/home/abhi/projects/monet.nvim/") then
   table.insert(plugins, {
-    dir = '/home/abhi/git/monet.nvim',
+    dir = '/home/abhi/projects/monet.nvim',
     lazy = false,
     priority = 1000,
     opts = {},
