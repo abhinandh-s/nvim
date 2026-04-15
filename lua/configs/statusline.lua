@@ -1,6 +1,5 @@
 ---@type ColorPalette
 local palette = require('colors')
-local monet_colors = require('monet.colors')
 
 local highlights = {
   ["CMODE"] = { bg = palette.cherry.red, fg = palette.mocha.text, bold = true },
