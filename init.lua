@@ -36,6 +36,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 require "plugins"
 
+vim.api.nvim_set_hl(0, "TroubleNormal", { link = "Normal" })
 
 -- local transparent = false
 --
