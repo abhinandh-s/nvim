@@ -35,3 +35,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 require "plugins"
+
+
+-- local transparent = false
+--
+-- if transparent do
+--   local hl_groups = {
+--     "Normal", "NormalNC"
+--   }
+--
+--   for _, group in ipairs(hl_groups) do
+--     --  vim.api.nvim_set_hl(0, group, { bg = "none", ctermbg = "none" })
+--   end
+-- end
