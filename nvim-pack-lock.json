@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "LuaSnip": {
+      "rev": "642b0c595e11608b4c18219e93b88d7637af27bc",
+      "src": "https://github.com/L3MON4D3/LuaSnip"
+    },
     "age.nvim": {
       "rev": "cea7a77db1ff7a9f000025da34c580a43a2499dd",
       "src": "https://github.com/abhinandh-s/age.nvim"
@@ -105,6 +109,10 @@
     "trouble.nvim": {
       "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
       "src": "https://github.com/folke/trouble.nvim"
+    },
+    "typst-snippets": {
+      "rev": "a4b968059e64a83a8cc6ac3ab89406230b757759",
+      "src": "git@github.com:abhinandh-s/typst-snippets.git"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
