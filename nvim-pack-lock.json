@@ -111,8 +111,8 @@
       "src": "https://github.com/folke/trouble.nvim"
     },
     "typst-snippets": {
-      "rev": "a4b968059e64a83a8cc6ac3ab89406230b757759",
-      "src": "git@github.com:abhinandh-s/typst-snippets.git"
+      "rev": "8bce45696295c9354d920576bdee8b0d1fbd10c6",
+      "src": "/home/abhi/projects/typst-snippets"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
